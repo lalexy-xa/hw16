@@ -2,7 +2,7 @@ package com.example.hw16.servicies;
 
 
 import com.example.hw16.data.reprository.NoteRepository;
-import com.example.hw16.dto.NoteDto;
+import com.example.hw16.servicies.dto.NoteDto;
 import com.example.hw16.servicies.mapper.MapperNotes;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

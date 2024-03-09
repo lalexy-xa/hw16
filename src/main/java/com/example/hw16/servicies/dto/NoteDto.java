@@ -1,4 +1,4 @@
-package com.example.hw16.dto;
+package com.example.hw16.servicies.dto;
 
 import lombok.Data;
 

@@ -1,7 +1,7 @@
 package com.example.hw16.controller;
 
 
-import com.example.hw16.dto.NoteDto;
+import com.example.hw16.servicies.dto.NoteDto;
 import com.example.hw16.servicies.NoteService;
 import com.example.hw16.servicies.mapper.MapperNotes;
 import jakarta.validation.constraints.NotEmpty;

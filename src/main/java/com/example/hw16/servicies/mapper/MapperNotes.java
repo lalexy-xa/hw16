@@ -1,7 +1,7 @@
 package com.example.hw16.servicies.mapper;
 
 import com.example.hw16.data.entities.Note;
-import com.example.hw16.dto.NoteDto;
+import com.example.hw16.servicies.dto.NoteDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

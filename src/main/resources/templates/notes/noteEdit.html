@@ -10,12 +10,16 @@
     <h2>Edit the note</h2>
     <form role="form-horizontal" action="/note/edit" method="post" >
         <div class="input-group mb-3">
+            <label class="form-label me-3" for="id">Id:</label>
+            <input readonly th:value = "${note.id}" class="form-control" type="text" id="id" name="id">
+        </div>
+        <div class="input-group mb-3">
             <label class="form-label me-3" for="title">Title:</label>
-            <input class="form-control" type="text" id="title" name="title">
+            <input th:value = "${note.title}" class="form-control" type="text" id="title" name="title">
         </div>
         <div class="input-group mb-3">
             <label class="form-label me-3" for="content">Content:</label>
-            <textarea class="form-control" id="content" name="content"></textarea>
+            <textarea th:text = "${note.content}" class="form-control" id="content" name="content"></textarea>
         </div>
         <button class="btn btn-success btn-lg" type="submit">Edit</button>
     </form>

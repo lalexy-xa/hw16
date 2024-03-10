@@ -4,6 +4,7 @@ package com.example.hw16.controller;
 import com.example.hw16.servicies.dto.NoteDto;
 import com.example.hw16.servicies.NoteService;
 import com.example.hw16.servicies.mapper.MapperNotes;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.UUID;
 
 @Controller
-@Validated
 @RequestMapping(value = "/note")
 public class NoteController {
     @Autowired
@@ -31,8 +31,8 @@ public class NoteController {
     }
 
     @PostMapping(value = "/add")
-    public String addNote(@NotNull  @RequestParam(name = "title") String title,
-                          @NotNull @RequestParam(name = "content") String content){
+    public String addNote(@NotEmpty @RequestParam(name = "title") String title,
+                          @NotEmpty @RequestParam(name = "content") String content){
         NoteDto note = new NoteDto();
         note.setTitle(title);
         note.setContent(content);
@@ -50,9 +50,11 @@ public class NoteController {
     }
 
     @PostMapping(value = "/edit")
-    public String editNote(@NotNull  @RequestParam(name = "title") String title,
-                           @NotNull @RequestParam(name = "content") String content) throws Exception {
+    public String editNote(@NotEmpty  @RequestParam(name = "id") UUID id,
+                           @NotEmpty  @RequestParam(name = "title") String title,
+                           @NotEmpty @RequestParam(name = "content") String content) throws Exception {
         NoteDto ndto = new NoteDto();
+        ndto.setId(id);
         ndto.setTitle(title);
         ndto.setContent(content);
         noteService.update(ndto);

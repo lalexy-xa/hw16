@@ -15,12 +15,4 @@ import java.util.UUID;
 
 public interface NoteRepository extends JpaRepository<Note, UUID> {
 
-    @Transactional
-    @Modifying
-    @Query(nativeQuery = true, value ="UPDATE note SET title=:title, content=:content WHERE id=:id")
-    public void updateNote(@Param("id") UUID id,
-                           @Param("title") String title,
-                           @Param("content") String content);
-
-
 }

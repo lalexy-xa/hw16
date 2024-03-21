@@ -35,7 +35,7 @@ public class NoteService {
     //шукає нотатку по note.id. Якщо нотатка є - оновлює для неї title та content. Якщо нотатки немає - викидає виключення.
     public void update(NoteDto note) throws Exception {
         if(noteRepository.existsById(note.getId())){
-            noteRepository.updateNote(note.getId(), note.getTitle(), note.getContent());
+            noteRepository.save(noteMapper.toNote(note));
         }else{
             throw new Exception("No ID");
         }

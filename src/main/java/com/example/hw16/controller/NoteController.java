@@ -50,13 +50,7 @@ public class NoteController {
     }
 
     @PostMapping(value = "/edit")
-    public String editNote(@NotEmpty  @RequestParam(name = "id") UUID id,
-                           @NotEmpty  @RequestParam(name = "title") String title,
-                           @NotEmpty @RequestParam(name = "content") String content) throws Exception {
-        NoteDto ndto = new NoteDto();
-        ndto.setId(id);
-        ndto.setTitle(title);
-        ndto.setContent(content);
+    public String editNote(@ModelAttribute NoteDto ndto) throws Exception {
         noteService.update(ndto);
         return "redirect:/note/list";
     }
